@@ -1,13 +1,21 @@
 import unzip as extract
-import health as hp
+import health
+import delete
 import os
 
+def extract_data():
+    dir_name = '/home/willian/Downloads/me/'
+    dir = os.listdir(dir_name)
+    for file_name in dir:
+        file = dir_name + file_name
+        extract.main(file)
+
+    return 'Files extracted'
+
 def main():
-    file1 = '/home/willian/Downloads/me/' + os.listdir('/home/willian/Downloads/me')[0]
-    file2 = '/home/willian/Downloads/me/' + os.listdir('/home/willian/Downloads/me')[1]
-    extract.main(file1, file2)
-    print('Extracted files')
-    hp.main()
+    print(extract_data())
+    health.main()
+    delete.main()
 
 
 if __name__ == '__main__': main()
