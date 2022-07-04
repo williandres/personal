@@ -3,7 +3,14 @@ import os
 
 def move_data():
     dir = os.listdir('./info')
-    os.mkdir(f'Week {dir[-1][-3:]}')
+    week = 'Week ' + str(int(dir[-1][-3:]) + 1)
+    os.mkdir(f'./info/{week}')
+
+    for file_name in os.listdir('./data/'):
+        source = './data/' + file_name
+        destination = './info/'+ week + '/' + file_name
+        shutil.move(source, destination)
+    os.mkdir(f'./data/health')
 
 def refresh_data():
     dir = os.listdir('/home/willian/Downloads/me/')

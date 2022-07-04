@@ -2,6 +2,7 @@ import unzip as extract
 import health
 import delete
 import os
+import shutil
 
 def extract_data():
     dir_name = '/home/willian/Downloads/me/'
@@ -24,6 +25,4 @@ def main():
     print('Work done')
 
 
-if __name__ == '__main__': 
-    dir = os.listdir('./info')
-    os.mkdir(f'./info/Week {dir[-1][-3:]}')
+if __name__ == '__main__': main()
