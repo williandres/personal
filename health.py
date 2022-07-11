@@ -47,6 +47,7 @@ def sleep():
     return 'Sleep time file done'
 
 def main():
+    os.mkdir(f'./data/health')
     print(excercise())
     print(steps())
     print(sleep())

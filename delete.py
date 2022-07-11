@@ -10,7 +10,6 @@ def move_data():
         source = './data/' + file_name
         destination = './info/'+ week + '/' + file_name
         shutil.move(source, destination)
-    os.mkdir(f'./data/health')
 
 def refresh_data():
     dir = os.listdir('/home/willian/Downloads/me/')
@@ -19,15 +18,18 @@ def refresh_data():
         os.remove(file)
 
 def mi_fit():
-    try:
+
         dirs = ['SPORT', 'SLEEP', 'ACTIVITY', 'HEARTRATE_AUTO', 'HEARTRATE', 'ACTIVITY_MINUTE', 'ACTIVITY_STAGE']
         for dir in dirs:
-            shutil.rmtree(os.path.join('./data/', dir))
-    except FileNotFoundError:
-        pass
+            try:
+                shutil.rmtree(os.path.join('./data/', dir))
+            except FileNotFoundError:
+                pass
 
 def main():
-    mi_fit()
+    valuate = input('Do you want to delete all Mi fit extracted data? [Y/n]: ')
+    if valuate == 'y' or valuate == 'Y':
+        mi_fit()
     valuate = input('Do you want to refreseh all data(non transform)? [Y/n]: ')
     if valuate == 'y' or valuate == 'Y':
         refresh_data()
