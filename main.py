@@ -2,7 +2,6 @@ import unzip as extract
 import health
 import delete
 import os
-import shutil
 
 def extract_data():
     dir_name = '/home/willian/Downloads/me/'
@@ -14,11 +13,11 @@ def extract_data():
     return 'Files extracted'
 
 def main():
-    execute = False
+    execute = True
     while execute:
         valuate = input('All data (non*transformed) are ready in the entry dir? [Y/n]: ')
         if valuate == 'y' or valuate == 'Y':
-            execute = True
+            execute = False
     print(extract_data())
     health.main()
     delete.main()

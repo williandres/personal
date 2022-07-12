@@ -1,5 +1,5 @@
 import zipfile
-import pyzipper 
+import pyzipper
 
 def main(file):
     try:
@@ -10,7 +10,7 @@ def main(file):
         with pyzipper.AESZipFile(file) as f:
             while wrong_pswd:
                 try:
-                    f.extractall(path='/home/willian/me/data', pwd = bytes(input("Password to unzip a file: "), 'utf-8'))
+                    f.extractall(path='/home/willian/me/data', pwd = bytes(input(f'Password to unzip a file ({file}): '), 'utf-8'))
                     wrong_pswd = False
                 except RuntimeError:
                     pass
